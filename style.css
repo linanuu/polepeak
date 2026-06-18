@@ -1,1 +1,159 @@
+/* =========================================================
+   styles.css  —  blog post stylesheet
+   ---------------------------------------------------------
+   This file styles the SEMANTIC TAGS directly (header, nav,
+   main, article, section, aside, footer, h1–h3, p, a...).
 
+   Why that matters: because we target the tags and not
+   classes, EVERY future post that uses the same structure
+   is styled automatically. You never have to add classes
+   to make a new post match.
+
+   Link it in your page's <head> like this:
+   <link rel="stylesheet" href="styles.css">
+   ========================================================= */
+
+
+/* ---------- 1. Variables (change the look in one place) ---------- */
+/* These are reusable values. Edit a value here and it updates
+   everywhere it's used below. */
+:root {
+  --color-text: #1f2328;        /* main body text */
+  --color-muted: #57606a;       /* less important text */
+  --color-accent: #2563eb;      /* links and highlights */
+  --color-bg: #ffffff;          /* page background */
+  --color-surface: #f6f8fa;     /* boxes like <aside> */
+  --color-border: #d0d7de;      /* hairlines and dividers */
+
+  --font-body: Georgia, "Times New Roman", serif;
+  --font-heading: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --max-width: 720px;           /* readable line length */
+  --space: 1rem;                /* base spacing unit */
+}
+
+
+/* ---------- 2. Base / reset ---------- */
+/* box-sizing makes width include padding (far more predictable). */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;            /* generous line height = easy reading */
+}
+
+
+/* ---------- 3. Header & navigation ---------- */
+header {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space);
+}
+
+/* The site title (h1) inside the header */
+header h1 {
+  max-width: var(--max-width);
+  margin: 0 auto var(--space);
+  font-family: var(--font-heading);
+}
+
+/* Nav lays its links out in a row with spacing between them */
+nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  gap: calc(var(--space) * 1.5);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+}
+
+
+/* ---------- 4. Main content area ---------- */
+/* Centers the content and caps line length for readability. */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: calc(var(--space) * 2) var(--space);
+}
+
+
+/* ---------- 5. Article (the post itself) ---------- */
+article h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+/* Sections inside the article (Ingredients, Steps, etc.) */
+section {
+  margin-top: calc(var(--space) * 2);
+}
+
+section h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: calc(var(--space) / 2);
+}
+
+p {
+  margin: var(--space) 0;
+}
+
+
+/* ---------- 6. Aside (sidebars / related content) ---------- */
+/* Sits in a tinted box so it reads as secondary to the article. */
+aside {
+  margin-top: calc(var(--space) * 2);
+  padding: var(--space);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+aside h3 {
+  margin-top: 0;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+}
+
+
+/* ---------- 7. Links ---------- */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+
+/* ---------- 8. Footer ---------- */
+footer {
+  border-top: 1px solid var(--color-border);
+  margin-top: calc(var(--space) * 3);
+  padding: calc(var(--space) * 2) var(--space);
+  color: var(--color-muted);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+
+/* ---------- 9. Images (so they never overflow) ---------- */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
