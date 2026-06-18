@@ -197,16 +197,18 @@ footer{background:var(--paper);padding:60px 40px 40px}
       <h3>High-Protein Vegan Snacks</h3>
       <p>Quick, macro-friendly plant-based snacks to hit your daily targets and fuel recovery between intense training sessions.</p>
     </a>
-
-    <a class="card" data-cat="off" href="grip-strenght-101.html">
-      <div class="card-img" style="position: relative; overflow: hidden;">
-        <img src="images/grip-help.png" alt="Close up of hands conditioning grip strength for pole fitness" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
-        <span class="card-cat" style="position: relative; z-index: 2;">Off the pole</span>
-      </div>
-      <div class="card-meta">4 min read</div>
-      <h3>Grip Strength 101: Exercises to Stop Slipping and Start Holding</h3>
-      <p>Tired of sliding down the pole? Break down the anatomy of your grip and learn the best off-the-pole conditioning drills to build unbreakable hand and forearm strength.</p>
-    </a>
+    
+<a class="card" data-cat="off" href="grip-strenght-101.html">
+  <!-- Removed position: relative and overflow: hidden if not strictly needed for other reasons -->
+  <div class="card-img" style="position: relative;">
+    <!-- Removed position: absolute and inset: 0. Added a fixed height block aspect if needed -->
+    <img src="images/grip-help.png" alt="Close up of hands conditioning grip strength for pole fitness" style="width: 100%; height: 200px; object-fit: cover; display: block; z-index: 1;">
+    <span class="card-cat" style="position: absolute; top: 10px; left: 10px; z-index: 2;">Off the pole</span>
+  </div>
+  <div class="card-meta">4 min read</div>
+  <h3>Grip Strength 101: Exercises to Stop Slipping and Start Holding</h3>
+  <p>Tired of sliding down the pole? Break down the anatomy of your grip and learn the best off-the-pole conditioning drills to build unbreakable hand and forearm strength.</p>
+</a>
         
     <a class="card" data-cat="plant" href="plant-powered-poler.html">
       <div class="card-img bg-plant"><span class="card-cat">Plant fuel</span></div>
