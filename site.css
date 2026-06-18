@@ -35,7 +35,15 @@ a{color:inherit}
 
 /* nav */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px 40px;background:rgba(247,244,238,0.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(35,41,29,0.08)}
-.logo{font-family:'Fraunces',serif;font-size:20px;font-weight:500;letter-spacing:0.02em;color:var(--forest);text-decoration:none}
+.logo{
+  display:inline-block;
+  width:150px;
+  height:38px;
+  background:url("/images/polepeak-logo.svg") left center / contain no-repeat;
+  text-indent:-9999px;
+  overflow:hidden;
+  white-space:nowrap;
+}
 .nav-links{display:flex;gap:34px;align-items:center}
 .nav-links a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:400;letter-spacing:0.04em;text-transform:lowercase;transition:opacity .2s}
 .nav-links a:hover{opacity:0.55}
