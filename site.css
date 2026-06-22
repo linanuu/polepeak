@@ -50,6 +50,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a.active{color:var(--wood-deep)}
 .nav-toggle{display:none;background:none;border:none;color:var(--forest);font-size:22px;cursor:pointer}
 
+.pole-band{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 40px;
+}
+.pole-band-art{
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  display: block;
+}
+
 /* blog header */
 .blog-header{padding:160px 40px 60px;max-width:1180px;margin:0 auto}
 .eyebrow{color:var(--moss);font-size:13px;letter-spacing:0.26em;text-transform:uppercase;margin-bottom:22px}
