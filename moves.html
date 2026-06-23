@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moves List | Pole Peak</title>
+  <meta name="description" content="Browse pole dance moves by difficulty — Beginner, Intermediate, and Advanced. Pick a move to learn more. Strength is built, not born.">
+
+  <link rel="canonical" href="https://polepeak.com/moves.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Moves List | Pole Peak">
+  <meta property="og:description" content="Browse pole dance moves by difficulty — Beginner, Intermediate, and Advanced.">
+  <meta property="og:url" content="https://polepeak.com/moves.html">
+  <meta property="og:image" content="https://polepeak.com/images/placeholder.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Moves List | Pole Peak">
+  <meta name="twitter:description" content="Browse pole dance moves by difficulty — Beginner, Intermediate, and Advanced.">
+  <meta name="twitter:image" content="https://polepeak.com/images/placeholder.png">
+
+  <!-- Fonts: Outfit (site.css pages) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared stylesheet for index pages -->
+  <link rel="stylesheet" href="/site.css">
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Moves List",
+    "description": "Browse pole dance moves by difficulty — Beginner, Intermediate, and Advanced.",
+    "url": "https://polepeak.com/moves.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Pole Peak",
+      "url": "https://polepeak.com"
+    }
+  }
+  </script>
+
+  <!-- Page-unique styles stay inline (per the design-system convention) -->
+  <style>
+    .moves-page {
+      max-width: var(--maxw, 1100px);
+      margin: 0 auto;
+      padding: 7rem 1.5rem 5rem;
+    }
+
+    .moves-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .moves-header h1 {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      color: var(--forest, #2F4A22);
+      margin: 0 0 .6rem;
+      letter-spacing: -0.02em;
+    }
+    .moves-header p {
+      color: var(--ink-soft, #5a6552);
+      font-size: 1.05rem;
+      max-width: 38rem;
+      margin: 0 auto;
+    }
+
+    /* Filter bar */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .6rem;
+      margin: 0 auto 3rem;
+    }
+    .filter-btn {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-weight: 500;
+      font-size: .95rem;
+      padding: .6rem 1.4rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--forest, #2F4A22);
+      background: transparent;
+      color: var(--forest, #2F4A22);
+      cursor: pointer;
+      transition: background .18s ease, color .18s ease, transform .18s ease;
+    }
+    .filter-btn:hover { transform: translateY(-1px); }
+    .filter-btn.is-active {
+      background: var(--forest, #2F4A22);
+      color: var(--paper, #f7f5ef);
+    }
+
+    /* Filter groups (difficulty + type) */
+    .filters {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.1rem;
+      margin: 0 auto 3rem;
+    }
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: .6rem;
+    }
+    .filter-label {
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--ink-soft, #5a6552);
+      margin-right: .2rem;
+    }
+
+    /* Move cards grid */
+    .moves-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .move-card {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      background: var(--surface, #ffffff);
+      border: 1px solid rgba(47, 74, 34, 0.12);
+      border-radius: var(--radius, 14px);
+      overflow: hidden;
+      cursor: pointer;
+      padding: 0;
+      font-family: 'Outfit', system-ui, sans-serif;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .move-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(47, 74, 34, 0.12);
+    }
+    .move-card:focus-visible {
+      outline: 3px solid var(--wood, #b07d4b);
+      outline-offset: 2px;
+    }
+
+    .card-img {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #e9ece4;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body { padding: 1.1rem 1.2rem 1.3rem; }
+
+    .card-meta {
+      display: flex;
+      gap: .4rem;
+      margin-bottom: .6rem;
+    }
+    .card-level,
+    .card-type {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .25rem .6rem;
+      border-radius: 999px;
+    }
+    .card-level {
+      color: var(--forest, #2F4A22);
+      background: rgba(47, 74, 34, 0.08);
+    }
+    .card-type {
+      color: var(--wood, #b07d4b);
+      background: rgba(176, 125, 75, 0.12);
+    }
+    .card-body h3 {
+      margin: 0 0 .3rem;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--forest, #2F4A22);
+    }
+    .card-body p {
+      margin: 0;
+      font-size: .9rem;
+      color: var(--ink-soft, #5a6552);
+    }
+
+    .moves-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: var(--ink-soft, #5a6552);
+      padding: 3rem 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .moves-page { padding-top: 6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================================================
+       NAV — placeholder structure following site.css conventions.
+       Replace this block with your actual nav markup from blog.html
+       if your class names differ. (I can't see your live files.)
+  ============================================================ -->
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a href="/index.html" class="nav-logo" aria-label="Pole Peak home">
+        <img src="/images/polepeak-logo.svg" alt="Pole Peak" height="34">
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/blog.html">Blog</a>
+        <a href="/moves.html" aria-current="page">Moves</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="moves-page">
+    <div class="moves-header">
+      <h1>Moves List</h1>
+      <p>Browse pole moves by level. Pick a move to learn more — strength is built, not born.</p>
+    </div>
+
+    <!-- Filters: difficulty + type. A card must match both. -->
+    <div class="filters">
+      <div class="filter-group" role="group" aria-label="Filter by difficulty" data-filter-type="level">
+        <span class="filter-label">Difficulty</span>
+        <button class="filter-btn is-active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="intro">Intro</button>
+        <button class="filter-btn" data-filter="beginner">Beginner</button>
+        <button class="filter-btn" data-filter="intermediate">Intermediate</button>
+        <button class="filter-btn" data-filter="advanced">Advanced</button>
+        <button class="filter-btn" data-filter="extreme">Extreme</button>
+      </div>
+      <div class="filter-group" role="group" aria-label="Filter by type" data-filter-type="type">
+        <span class="filter-label">Filter by</span>
+        <button class="filter-btn is-active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="static">Static</button>
+        <button class="filter-btn" data-filter="spin">Spin</button>
+      </div>
+    </div>
+
+    <!-- Move cards. Add real moves by copying a .move-card block and
+         setting data-level (intro/beginner/intermediate/advanced/extreme)
+         + data-type (static/spin) + content. -->
+    <div class="moves-grid" id="movesGrid">
+
+      <!-- Intro -->
+      <button class="move-card" data-level="intro" data-type="static" data-move-id="placeholder">
+        <div class="card-img"><img src="/images/placeholder.png" alt=""></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-level">Intro</span><span class="card-type">Static</span></div>
+          <h3>Placeholder</h3>
+          <p>Placeholder</p>
+        </div>
+      </button>
+
+      <button class="move-card" data-level="intro" data-type="spin" data-move-id="placeholder">
+        <div class="card-img"><img src="/images/placeholder.png" alt=""></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-level">Intro</span><span class="card-type">Spin</span></div>
+          <h3>Placeholder</h3>
+          <p>Placeholder</p>
+        </div>
+      </button>
+
+      <!-- Beginner -->
+      <button class="move-card" data-level="beginner" data-type="static" data-move-id="placeholder">
+        <div class="card-img"><img src="/images/placeholder.png" alt=""></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-level">Beginner</span><span class="card-type">Static</span></div>
+          <h3>Placeholder</h3>
+          <p>Placeholder</p>
+        </div>
+      </button>
+
+      <button class="move-card" data-level="beginner" data-type="spin" data-move-id="placeholder">
+        <div class="card-img"><img src="/images/placeholder.png" alt=""></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-level">Beginner</span><span class="card-type">Spin</span></div>
+          <h3>Placeholder</h3>
+          <p>Placeholder</p>
+        </div>
+      </button>
+
+      <!-- Intermediate -->
+      <button class="move-card" data-level="intermediate" data-type="static" data-move-id="placeholder">
+        <div class="card-img"><img src="/images/placeholder.png" alt=""></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-level">Intermediate</span><span class="card-type">Static</span></div>
+          <h3>Placeholder</h3>
+          <p>Placeholder</p>
+        </div>
+      </button>
+
+      <button class="move-card" data-level="intermediate" data-type="spin" data-move-id="placeholder">
+        <div class="card-img"><img src="/images/placeholder.png" alt=""></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-level">Intermediate</span><span class="card-type">Spin</span></div>
+          <h3>Placeholder</h3>
+          <p>Placeholder</p>
+        </div>
+      </button>
+
+      <!-- Advanced -->
+      <button class="move-card" data-level="advanced" data-type="static" data-move-id="placeholder">
+        <div class="card-img"><img src="/images/placeholder.png" alt=""></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-level">Advanced</span><span class="card-type">Static</span></div>
+          <h3>Placeholder</h3>
+          <p>Placeholder</p>
+        </div>
+      </button>
+
+      <button class="move-card" data-level="advanced" data-type="spin" data-move-id="placeholder">
+        <div class="card-img"><img src="/images/placeholder.png" alt=""></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-level">Advanced</span><span class="card-type">Spin</span></div>
+          <h3>Placeholder</h3>
+          <p>Placeholder</p>
+        </div>
+      </button>
+
+      <!-- Extreme -->
+      <button class="move-card" data-level="extreme" data-type="static" data-move-id="placeholder">
+        <div class="card-img"><img src="/images/placeholder.png" alt=""></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-level">Extreme</span><span class="card-type">Static</span></div>
+          <h3>Placeholder</h3>
+          <p>Placeholder</p>
+        </div>
+      </button>
+
+      <button class="move-card" data-level="extreme" data-type="spin" data-move-id="placeholder">
+        <div class="card-img"><img src="/images/placeholder.png" alt=""></div>
+        <div class="card-body">
+          <div class="card-meta"><span class="card-level">Extreme</span><span class="card-type">Spin</span></div>
+          <h3>Placeholder</h3>
+          <p>Placeholder</p>
+        </div>
+      </button>
+
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const cards = Array.from(document.querySelectorAll('.move-card'));
+      const grid = document.getElementById('movesGrid');
+
+      // Active selection for each filter dimension
+      const active = { level: 'all', type: 'all' };
+
+      // Empty-state message (shown if no cards match)
+      const emptyMsg = document.createElement('p');
+      emptyMsg.className = 'moves-empty';
+      emptyMsg.textContent = 'No moves match those filters yet — check back soon.';
+      emptyMsg.hidden = true;
+      grid.appendChild(emptyMsg);
+
+      function applyFilters() {
+        let visible = 0;
+        cards.forEach(card => {
+          const matchLevel = active.level === 'all' || card.dataset.level === active.level;
+          const matchType  = active.type  === 'all' || card.dataset.type  === active.type;
+          const show = matchLevel && matchType;
+          card.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        emptyMsg.hidden = visible !== 0;
+      }
+
+      // Wire up each filter group independently
+      document.querySelectorAll('.filter-group').forEach(group => {
+        const dimension = group.dataset.filterType; // 'level' or 'type'
+        group.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            group.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('is-active'));
+            btn.classList.add('is-active');
+            active[dimension] = btn.dataset.filter;
+            applyFilters();
+          });
+        });
+      });
+
+      // Click behaviour for a move card — to be defined later.
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          const moveId = card.dataset.moveId;
+          // TODO: decide what happens when a move is clicked.
+          console.log('Move clicked:', moveId);
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
