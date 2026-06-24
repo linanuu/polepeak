@@ -50,20 +50,25 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-links a.active{color:var(--wood-deep)}
 .nav-toggle{display:none;background:none;border:none;color:var(--forest);font-size:22px;cursor:pointer}
 
+/* --- Find this inside your <style> tag --- */
+
 .pole-band {
   background: var(--forest-deep);
   display: flex;
-  /* Shifting alignment from 'center' to 'flex-start' moves it left */
+  
+  /* 1. Shifting alignment from 'center' to 'flex-start' moves it left */
   justify-content: flex-start; 
   align-items: center;
-  /* Added a bit extra padding on the left (80px) so it doesn't slam into the edge, adjust as needed */
-  padding: 40px 40px 40px 80px; 
+  
+  /* 2. Give it some nice breathing room on the left so it doesn't hug the screen edge */
+  padding: 40px 40px 40px 60px; 
 }
 
 .pole-band-art {
   width: 100%;
-  /* Decreased from 520px to 400px to make it smaller */
-  max-width: 400px; 
+  
+  /* 3. Drop this down from filling the space to a smaller, fixed max-width */
+  max-width: 320px; 
   height: auto;
   display: block;
 }
