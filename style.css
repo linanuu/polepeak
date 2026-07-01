@@ -15,6 +15,7 @@
   --forest-deep:#1C3325;
   --wood:#B07F4F;
   --wood-soft:#D8BC97;
+  --wood-deep:#8F5E33; /* ADDED — check against site.css's actual value, swap if different */
   --silver:#C2C7CC;
   --ink:#232924;
   --ink-soft:#566055;
@@ -26,6 +27,7 @@
 html{scroll-behavior:smooth;}
 body{
   margin:0;
+  padding-top:90px; /* ADDED — clears the fixed nav so hero content doesn't hide underneath */
   background:var(--cream);
   color:var(--ink);
   font-family:"Inter",system-ui,sans-serif;
