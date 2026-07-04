@@ -137,18 +137,12 @@ nav{
 .pillar p{font-size:15px;color:rgba(35,41,29,0.7);font-weight:300}
 
 /* split feature */
-.feature{display:grid;grid-template-columns:1fr 1fr;min-height:84vh}
-.feature-visual{
-  background:linear-gradient(150deg,var(--forest) 0%,var(--forest-deep) 100%);
-  position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;
-}
-.feature-visual .pole-v{position:absolute;top:8%;bottom:8%;left:50%;width:4px;background:linear-gradient(to bottom,transparent,var(--silver),transparent);opacity:0.6}
-.feature-visual .leaf{position:absolute;font-family:'Fraunces',serif;font-style:italic;color:rgba(224,203,163,0.18);font-size:clamp(60px,12vw,150px);line-height:0.9;text-align:center;padding:20px}
-.feature-content{background:var(--paper);padding:clamp(50px,8vw,110px) clamp(40px,6vw,80px);display:flex;flex-direction:column;justify-content:center}
+.feature{background:var(--paper);display:flex;justify-content:center;padding:clamp(70px,10vw,130px) 40px}
+.feature-content{max-width:640px;width:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
 .feature-content .section-eyebrow{margin-bottom:20px}
 .feature-content h2{font-size:clamp(30px,4vw,52px);margin-bottom:26px;color:var(--ink)}
-.feature-content p{font-size:17px;color:rgba(35,41,29,0.72);margin-bottom:20px;max-width:42ch}
-.feature-list{list-style:none;margin:14px 0 36px}
+.feature-content p{font-size:17px;color:rgba(35,41,29,0.72);margin-bottom:20px;max-width:42ch;margin-left:auto;margin-right:auto}
+.feature-list{list-style:none;margin:14px auto 36px;display:inline-block;text-align:left}
 .feature-list li{font-size:16px;color:var(--ink);padding:14px 0;border-bottom:1px solid rgba(35,41,29,0.1);display:flex;align-items:center;gap:14px;font-weight:300}
 .feature-list li::before{content:"";width:7px;height:7px;background:var(--wood);border-radius:50%;flex-shrink:0}
 
@@ -184,8 +178,6 @@ footer{background:var(--paper);padding:60px 40px 40px}
 @keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(0.6)}50%{opacity:1;transform:scaleY(1)}}
 
 @media(max-width:860px){
-  .feature{grid-template-columns:1fr}
-  .feature-visual{min-height:340px}
   .pillar-grid{grid-template-columns:1fr}
   nav{padding:18px 22px}
   .hero,.story,.pillars,.cta-band{padding-left:22px;padding-right:22px}
@@ -282,9 +274,6 @@ footer{background:var(--paper);padding:60px 40px 40px}
 </section>
 
 <section class="feature">
-  <div class="pole-band" style="background: var(--forest-deep); display: flex; justify-content: flex-start; align-items: center; padding: 40px 40px 40px 60px; width: 100%;">
-    <img src="/images/pole-band.png" alt="Illustrated pole artist in an inverted hold" class="pole-band-art" style="width: 100%; max-width: 320px; height: auto; display: block;">
-  </div>
   <div class="feature-content">
     <div class="section-eyebrow">Not another video dump</div>
     <h2>A training tool, not just a library.</h2>
@@ -295,7 +284,7 @@ footer{background:var(--paper);padding:60px 40px 40px}
       <li>Conditioning programs that build week on week</li>
       <li>Made by a certified teacher who started from zero</li>
     </ul>
-    <a href="#join" class="btn btn-primary" style="align-self:flex-start;color:#fff;background:var(--forest)">Get early access</a>
+    <a href="#join" class="btn btn-primary" style="color:#fff;background:var(--forest)">Get early access</a>
   </div>
 </section>
 
