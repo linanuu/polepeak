@@ -1,0 +1,166 @@
+/* ============================================================
+   Pole Peak — shared SITE styles (homepage + blog index)
+   Link this in index.html and blog.html:
+   <link rel="stylesheet" href="site.css">
+
+   This is the "marketing/index" look: Outfit body, Fraunces headings,
+   the --paper palette, the fixed blurred nav, the newsletter strip
+   and footer. It is DIFFERENT from style.css (the reading/post look) —
+   never link both on the same page.
+
+   Fonts still load in the <head> of each page:
+   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+   Page-specific sections (e.g. homepage hero/story/train blocks) stay
+   inline in that page's own <style> block.
+   ============================================================ */
+
+:root{
+  --paper:#F7F4EE;
+  --paper-warm:#EFE8DC;
+  --wood:#E0CBA3;
+  --wood-deep:#C9A86B;
+  --forest:#2F4A22;
+  --forest-deep:#1E3214;
+  --moss:#6B7F4E;
+  --silver:#B9BBB6;
+  --ink:#23291D;
+  --blush:#E6C9BC;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;line-height:1.08;letter-spacing:-0.01em}
+a{color:inherit}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px 40px;background:rgba(247,244,238,0.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(35,41,29,0.08)}
+.logo{
+  display:inline-block;
+  width:150px;
+  height:38px;
+  background:url("/images/polepeak-logo.svg") left center / contain no-repeat;
+  text-indent:-9999px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:400;letter-spacing:0.04em;text-transform:lowercase;transition:opacity .2s}
+.nav-links a:hover{opacity:0.55}
+.nav-links a.active{color:var(--wood-deep)}
+.nav-toggle{display:none;background:none;border:none;color:var(--forest);font-size:22px;cursor:pointer}
+
+/* --- Find this inside your <style> tag --- */
+
+.pole-band {
+  background: var(--forest-deep);
+  display: flex;
+  
+  /* 1. Shifting alignment from 'center' to 'flex-start' moves it left */
+  justify-content: flex-start; 
+  align-items: center;
+  
+  /* 2. Give it some nice breathing room on the left so it doesn't hug the screen edge */
+  padding: 40px 40px 40px 60px; 
+}
+
+.pole-band-art {
+  width: 100%;
+  
+  /* 3. Drop this down from filling the space to a smaller, fixed max-width */
+  max-width: 320px; 
+  height: auto;
+  display: block;
+}
+
+/* blog header */
+.blog-header{padding:160px 40px 60px;max-width:1180px;margin:0 auto}
+.eyebrow{color:var(--moss);font-size:13px;letter-spacing:0.26em;text-transform:uppercase;margin-bottom:22px}
+.blog-header h1{font-size:clamp(44px,8vw,92px);max-width:15ch;margin-bottom:26px;color:var(--ink)}
+.blog-header h1 em{font-style:italic;color:var(--forest)}
+.blog-header p{font-size:clamp(17px,2vw,20px);max-width:50ch;color:rgba(35,41,29,0.7)}
+
+/* category filter */
+.filters{position:sticky;top:65px;z-index:50;background:var(--paper);padding:22px 40px;border-bottom:1px solid rgba(35,41,29,0.1)}
+.filters-inner{max-width:1180px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.filter-btn{padding:9px 20px;border-radius:40px;border:1px solid rgba(35,41,29,0.18);background:transparent;font-family:'Outfit';font-size:14px;font-weight:400;color:var(--ink);cursor:pointer;transition:all .2s;letter-spacing:0.02em}
+.filter-btn:hover{border-color:var(--forest)}
+.filter-btn.active{background:var(--forest);color:var(--paper);border-color:var(--forest)}
+
+/* post grid */
+.posts{max-width:1180px;margin:0 auto;padding:56px 40px 100px}
+.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 30px}
+.card{display:flex;flex-direction:column;background:transparent;cursor:pointer;transition:transform .3s;text-decoration:none}
+.card:hover{transform:translateY(-6px)}
+.card-img{aspect-ratio:4/3;border-radius:4px;overflow:hidden;margin-bottom:20px;position:relative;display:flex;align-items:flex-end;padding:18px}
+.card:hover .card-img::after{opacity:0.5}
+.card-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,50,20,0.5),transparent 60%);opacity:0.35;transition:opacity .3s}
+.card-cat{position:relative;z-index:2;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#fff;font-weight:400;background:rgba(30,50,20,0.55);padding:6px 13px;border-radius:30px;backdrop-filter:blur(4px)}
+.card-meta{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--moss);margin-bottom:10px}
+.card h3{font-size:23px;margin-bottom:10px;color:var(--ink);transition:color .2s;line-height:1.2}
+.card:hover h3{color:var(--forest)}
+.card p{font-size:15px;color:rgba(35,41,29,0.65);font-weight:300}
+
+/* featured (first post) */
+.featured{grid-column:1 / -1;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;margin-bottom:24px;text-decoration:none;cursor:pointer}
+.featured .card-img{aspect-ratio:16/11;margin-bottom:0;height:100%}
+.featured-body{display:flex;flex-direction:column}
+.featured .card-meta{margin-bottom:14px}
+.featured h2{font-size:clamp(28px,3.6vw,46px);margin-bottom:16px;color:var(--ink);transition:color .2s}
+.featured:hover h2{color:var(--forest)}
+.featured p{font-size:17px;color:rgba(35,41,29,0.7);margin-bottom:20px;max-width:46ch}
+.read-more{font-size:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--forest);display:inline-flex;align-items:center;gap:8px;font-weight:400}
+
+/* placeholder visual backgrounds (stand in for post images) */
+.bg-pole{background:linear-gradient(150deg,#2F4A22,#1E3214)}
+.bg-off{background:linear-gradient(150deg,#6B7F4E,#3a5226)}
+.bg-plant{background:linear-gradient(150deg,#8BA06A,#5c7340)}
+.bg-bend{background:linear-gradient(150deg,#E0CBA3,#C9A86B)}
+.bg-zero{background:linear-gradient(150deg,#E6C9BC,#c79e8c)}
+.bg-pole2{background:linear-gradient(150deg,#3a5a2a,#23381a)}
+
+/* empty state */
+.empty{grid-column:1/-1;text-align:center;padding:80px 20px;color:var(--moss)}
+.empty-mark{font-family:'Fraunces',serif;font-size:44px;color:var(--wood);margin-bottom:16px}
+.empty p{font-size:18px;color:rgba(35,41,29,0.6)}
+
+/* newsletter strip */
+.sub-strip{background:var(--forest-deep);padding:80px 40px;text-align:center}
+.sub-inner{max-width:600px;margin:0 auto}
+.sub-strip h2{color:var(--paper);font-size:clamp(28px,4vw,44px);margin-bottom:16px}
+.sub-strip h2 em{font-style:italic;color:var(--wood)}
+.sub-strip p{color:rgba(247,244,238,0.75);font-size:16px;margin-bottom:30px}
+.sub-form{display:flex;gap:12px;max-width:440px;margin:0 auto;flex-wrap:wrap}
+.sub-form input{flex:1;min-width:200px;padding:15px 20px;border:1px solid rgba(247,244,238,0.25);background:rgba(247,244,238,0.06);color:var(--paper);font-family:'Outfit';font-size:15px;border-radius:2px}
+.sub-form input::placeholder{color:rgba(247,244,238,0.5)}
+.sub-form input:focus{outline:none;border-color:var(--wood)}
+.sub-form button{padding:15px 28px;background:var(--wood);color:var(--forest-deep);border:none;border-radius:2px;font-family:'Outfit';font-size:14px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.sub-form button:hover{background:var(--paper)}
+
+/* footer */
+footer{background:var(--paper);padding:60px 40px 40px}
+.footer-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:30px}
+.footer-logo{font-family:'Fraunces',serif;font-size:28px;color:var(--forest);font-weight:500}
+.footer-tag{font-size:14px;color:var(--moss);margin-top:8px}
+.footer-social{display:flex;gap:24px}
+.footer-social a{color:var(--ink);text-decoration:none;font-size:14px;letter-spacing:0.06em;text-transform:lowercase;transition:color .2s;border-bottom:1px solid transparent;padding-bottom:2px}
+.footer-social a:hover{color:var(--wood-deep);border-color:var(--wood-deep)}
+.footer-base{max-width:1180px;margin:48px auto 0;padding-top:24px;border-top:1px solid rgba(35,41,29,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(35,41,29,0.5)}
+
+@media(max-width:900px){
+  .post-grid{grid-template-columns:repeat(2,1fr)}
+  .featured{grid-template-columns:1fr}
+  .featured .card-img{aspect-ratio:16/10}
+}
+@media(max-width:600px){
+  .post-grid{grid-template-columns:1fr}
+  nav{padding:18px 22px}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;position:absolute;top:60px;right:22px;flex-direction:column;background:var(--forest-deep);padding:22px 28px;gap:16px;border-radius:4px}
+  .nav-links.open a{color:var(--paper)}
+  .nav-toggle{display:block}
+  .blog-header{padding:130px 22px 40px}
+  .filters{padding:18px 22px;top:59px}
+  .posts{padding:40px 22px 80px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pole Peak Journal — pole, strength, plants &amp; getting started</title>
+<meta name="description" content="Honest writing on pole training, off-the-pole strength, plant-based nutrition, flexibility and going from zero to strong. By a certified pole teacher who started at 22.">
+<link rel="canonical" href="https://polepeak.com/blog">
+<!-- Open Graph -->
+<meta property="og:title" content="The Pole Peak Journal">
+<meta property="og:description" content="Pole, strength, plants and the path from zero to strong.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://polepeak.com/blog">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F7F4EE;
+  --paper-warm:#EFE8DC;
+  --wood:#E0CBA3;
+  --wood-deep:#C9A86B;
+  --forest:#2F4A22;
+  --forest-deep:#1E3214;
+  --moss:#6B7F4E;
+  --silver:#B9BBB6;
+  --ink:#23291D;
+  --blush:#E6C9BC;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Outfit',sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:400;line-height:1.08;letter-spacing:-0.01em}
+a{color:inherit}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px 40px;background:rgba(247,244,238,0.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(35,41,29,0.08)}
+.logo{font-family:'Fraunces',serif;font-size:20px;font-weight:500;letter-spacing:0.02em;color:var(--forest);text-decoration:none}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:400;letter-spacing:0.04em;text-transform:lowercase;transition:opacity .2s}
+.nav-links a:hover{opacity:0.55}
+.nav-links a.active{color:var(--wood-deep)}
+.nav-toggle{display:none;background:none;border:none;color:var(--forest);font-size:22px;cursor:pointer}
+
+/* header */
+.blog-header{padding:160px 40px 60px;max-width:1180px;margin:0 auto}
+.eyebrow{color:var(--moss);font-size:13px;letter-spacing:0.26em;text-transform:uppercase;margin-bottom:22px}
+.blog-header h1{font-size:clamp(44px,8vw,92px);max-width:15ch;margin-bottom:26px;color:var(--ink)}
+.blog-header h1 em{font-style:italic;color:var(--forest)}
+.blog-header p{font-size:clamp(17px,2vw,20px);max-width:50ch;color:rgba(35,41,29,0.7)}
+
+/* category filter */
+.filters{position:sticky;top:65px;z-index:50;background:var(--paper);padding:22px 40px;border-bottom:1px solid rgba(35,41,29,0.1)}
+.filters-inner{max-width:1180px;margin:0 auto;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.filter-btn{padding:9px 20px;border-radius:40px;border:1px solid rgba(35,41,29,0.18);background:transparent;font-family:'Outfit';font-size:14px;font-weight:400;color:var(--ink);cursor:pointer;transition:all .2s;letter-spacing:0.02em}
+.filter-btn:hover{border-color:var(--forest)}
+.filter-btn.active{background:var(--forest);color:var(--paper);border-color:var(--forest)}
+
+/* post grid */
+.posts{max-width:1180px;margin:0 auto;padding:56px 40px 100px}
+.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 30px}
+.card{display:flex;flex-direction:column;background:transparent;cursor:pointer;transition:transform .3s;text-decoration:none}
+.card:hover{transform:translateY(-6px)}
+.card-img{aspect-ratio:4/3;border-radius:4px;overflow:hidden;margin-bottom:20px;position:relative;display:flex;align-items:flex-end;padding:18px}
+.card:hover .card-img::after{opacity:0.5}
+.card-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,50,20,0.5),transparent 60%);opacity:0.35;transition:opacity .3s}
+.card-cat{position:relative;z-index:2;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#fff;font-weight:400;background:rgba(30,50,20,0.55);padding:6px 13px;border-radius:30px;backdrop-filter:blur(4px)}
+.card-meta{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--moss);margin-bottom:10px}
+.card h3{font-size:23px;margin-bottom:10px;color:var(--ink);transition:color .2s;line-height:1.2}
+.card:hover h3{color:var(--forest)}
+.card p{font-size:15px;color:rgba(35,41,29,0.65);font-weight:300}
+
+/* featured (first post) */
+.featured{grid-column:1 / -1;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;margin-bottom:24px;text-decoration:none;cursor:pointer}
+.featured .card-img{aspect-ratio:16/11;margin-bottom:0;height:100%}
+.featured-body{display:flex;flex-direction:column}
+.featured .card-meta{margin-bottom:14px}
+.featured h2{font-size:clamp(28px,3.6vw,46px);margin-bottom:16px;color:var(--ink);transition:color .2s}
+.featured:hover h2{color:var(--forest)}
+.featured p{font-size:17px;color:rgba(35,41,29,0.7);margin-bottom:20px;max-width:46ch}
+.read-more{font-size:14px;letter-spacing:0.08em;text-transform:uppercase;color:var(--forest);display:inline-flex;align-items:center;gap:8px;font-weight:400}
+
+/* placeholder visual backgrounds (stand in for post images) */
+.bg-pole{background:linear-gradient(150deg,#2F4A22,#1E3214)}
+.bg-off{background:linear-gradient(150deg,#6B7F4E,#3a5226)}
+.bg-plant{background:linear-gradient(150deg,#8BA06A,#5c7340)}
+.bg-bend{background:linear-gradient(150deg,#E0CBA3,#C9A86B)}
+.bg-zero{background:linear-gradient(150deg,#E6C9BC,#c79e8c)}
+.bg-pole2{background:linear-gradient(150deg,#3a5a2a,#23381a)}
+
+/* empty state */
+.empty{grid-column:1/-1;text-align:center;padding:80px 20px;color:var(--moss)}
+.empty-mark{font-family:'Fraunces',serif;font-size:44px;color:var(--wood);margin-bottom:16px}
+.empty p{font-size:18px;color:rgba(35,41,29,0.6)}
+
+/* newsletter strip */
+.sub-strip{background:var(--forest-deep);padding:80px 40px;text-align:center}
+.sub-inner{max-width:600px;margin:0 auto}
+.sub-strip h2{color:var(--paper);font-size:clamp(28px,4vw,44px);margin-bottom:16px}
+.sub-strip h2 em{font-style:italic;color:var(--wood)}
+.sub-strip p{color:rgba(247,244,238,0.75);font-size:16px;margin-bottom:30px}
+.sub-form{display:flex;gap:12px;max-width:440px;margin:0 auto;flex-wrap:wrap}
+.sub-form input{flex:1;min-width:200px;padding:15px 20px;border:1px solid rgba(247,244,238,0.25);background:rgba(247,244,238,0.06);color:var(--paper);font-family:'Outfit';font-size:15px;border-radius:2px}
+.sub-form input::placeholder{color:rgba(247,244,238,0.5)}
+.sub-form input:focus{outline:none;border-color:var(--wood)}
+.sub-form button{padding:15px 28px;background:var(--wood);color:var(--forest-deep);border:none;border-radius:2px;font-family:'Outfit';font-size:14px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+.sub-form button:hover{background:var(--paper)}
+
+/* footer */
+footer{background:var(--paper);padding:60px 40px 40px}
+.footer-inner{max-width:1180px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:30px}
+.footer-logo{font-family:'Fraunces',serif;font-size:28px;color:var(--forest);font-weight:500}
+.footer-tag{font-size:14px;color:var(--moss);margin-top:8px}
+.footer-social{display:flex;gap:24px}
+.footer-social a{color:var(--ink);text-decoration:none;font-size:14px;letter-spacing:0.06em;text-transform:lowercase;transition:color .2s;border-bottom:1px solid transparent;padding-bottom:2px}
+.footer-social a:hover{color:var(--wood-deep);border-color:var(--wood-deep)}
+.footer-base{max-width:1180px;margin:48px auto 0;padding-top:24px;border-top:1px solid rgba(35,41,29,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:rgba(35,41,29,0.5)}
+
+@media(max-width:900px){
+  .post-grid{grid-template-columns:repeat(2,1fr)}
+  .featured{grid-template-columns:1fr}
+  .featured .card-img{aspect-ratio:16/10}
+}
+@media(max-width:600px){
+  .post-grid{grid-template-columns:1fr}
+  nav{padding:18px 22px}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;position:absolute;top:60px;right:22px;flex-direction:column;background:var(--forest-deep);padding:22px 28px;gap:16px;border-radius:4px}
+  .nav-links.open a{color:var(--paper)}
+  .nav-toggle{display:block}
+  .blog-header{padding:130px 22px 40px}
+  .filters{padding:18px 22px;top:59px}
+  .posts{padding:40px 22px 80px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Pole Peak</a>
+  <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <div class="nav-links">
+    <a href="index.html#story">story</a>
+    <a href="index.html#train">train</a>
+    <a href="blog.html" class="active">blog</a>
+    <a href="index.html#join">join</a>
+        <a href="moves.html#moves">moves list</a>
+  </div>
+</nav>
+
+<header class="blog-header">
+  <div class="eyebrow">The Pole Peak Blog</div>
+  <h1>Notes from the <em>climb.</em></h1>
+  <p>Honest writing on pole, strength, flexibility, plant-based fuel and what it actually takes to go from zero to strong. No gatekeeping, no perfect-body nonsense.</p>
+</header>
+
+<div class="filters">
+  <div class="filters-inner">
+    <button class="filter-btn active" data-cat="all">All</button>
+    <button class="filter-btn" data-cat="pole">On the pole</button>
+    <button class="filter-btn" data-cat="off">Off the pole</button>
+    <button class="filter-btn" data-cat="plant">Plant fuel</button>
+    <button class="filter-btn" data-cat="bend">Bend</button>
+    <button class="filter-btn" data-cat="zero">From zero</button>
+  </div>
+</div>
+
+<main class="posts">
+  <div class="post-grid" id="grid">
+
+    <a class="card" data-cat="zero" href="/blog/pole-dancing-for-beginners">
+  <div class="card-img" style="position: relative; overflow: hidden;">
+    <img src="images/pole-expect.png" alt="Pole dancer on a pole in a pole sit move" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+    <span class="card-cat" style="position: relative; z-index: 2;">From zero</span>
+  </div>
+  <div class="card-meta">8 min read</div>
+  <h3>Pole Dancing for Beginners: Your First Steps to Strength and Confidence</h3>
+  <p>What actually happens in your first class, the moves you'll learn first, and how the strength and confidence show up — the honest starter guide.</p>
+</a>
+
+    <a class="card" data-cat="bend" href="/blog/active-flexibility-pole">
+  <div class="card-img" style="position: relative; overflow: hidden;">
+    <img src="images/active-flex-101.png" alt="Pole dancer lifting one leg into a needle position" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+    <span class="card-cat" style="position: relative; z-index: 2;">Bend</span>
+  </div>
+  <div class="card-meta">7 min read</div>
+  <h3>Active vs. Passive Flexibility: Why Stretching Alone Won't Get Your Jade Split</h3>
+  <p>Passive stretching builds range you can't use in the air. Here's why active flexibility is what actually holds a jade split, plus end-range hamstring and hip flexor drills.</p>
+</a>
+
+    <a class="card" data-cat="zero" href="blog/non-linear-fitness-progress">
+<div class="card-img" style="position: relative; overflow: hidden;">
+    <img src="images/non-linear.png" alt="Woman doing crunches on the floor" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+    <span class="card-cat" style="position: relative; z-index: 2;">From zero</span>
+  </div>  <div class="card-meta">6 min read</div>
+  <h3>The Non-Linear Journey: Why Progress Looks Like a Zig-Zag</h3>
+  <p>Why real progress zig-zags instead of climbing in a straight line — and why breaks, illness, busy seasons and your cycle are healthy parts of the long game.</p>
+</a>
+
+
+    <a class="card" data-cat="pole" href="/blog/grip-aids-for-pole-dance-beginners">
+  <div class="card-img" style="position: relative; overflow: hidden;">
+    <img src="images/grip-info.png" alt="Hand in a fist, demonstrating strong grip" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+    <span class="card-cat" style="position: relative; z-index: 2;">On the pole</span>
+  </div>
+  <div class="card-meta">7 min read</div>
+  <h3>Grip Aids for Pole Dance Beginners: What to Use and When</h3>
+  <p>Sweaty hands, dry skin, and "I need extra stick" are three different problems — here's what actually fixes each one, plus a grip finder tool.</p>
+</a>
+
+
+    <a class="card" data-cat="pole" href="blog/home-pole-training-discipline">
+  <div class="card-img" style="position: relative; overflow: hidden;">
+    <img src="images/home-training.png" alt="A pole dancer training alone in a home studio" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+    <span class="card-cat" style="position: relative; z-index: 2;">On the pole</span>
+  </div>
+  <div class="card-meta">6 min read</div>
+  <h3>The Solo Training Mindset: How to Stay Focused When Practicing Alone</h3>
+  <p>Train pole alone without losing the session — safety boundaries, structuring with timers, and beating the recording trap. Includes a runnable session planner.</p>
+</a>
+
+    <!-- RED LENTIL DAHL — MACRO BREAKDOWN -->
+    <a class="card" data-cat="plant" href="high-protein-red-lentil-dahl">
+      <div class="card-img" style="position: relative; overflow: hidden;">
+        <img src="images/dahl.png" alt="A bowl of red lentil dahl topped with fresh coriander" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+        <span class="card-cat" style="position: relative; z-index: 2;">Plant fuel</span>
+      </div>
+      <div class="card-meta">7 min read</div>
+      <h3>The Macro Breakdown: Analyzing a Perfect Post-Training Red Lentil Dahl</h3>
+      <p>A full macro breakdown of red lentil dahl as a recovery meal — amino-acid pairing with rice, the vitamin C iron-absorption trick, and a calculator to build your bowl.</p>
+    </a>
+
+    <!-- NEW PROTEIN POST ADDED HERE (NOW A STANDARD CARD) -->
+    <a class="card" data-cat="plant" href="high-protein-vegan-snacks">
+      <div class="card-img" style="position: relative; overflow: hidden;">
+        <!-- If you want an image here later, swap bg-plant with your img tag -->
+        <div class="card-img bg-plant" style="position: absolute; inset: 0; width: 100%; height: 100%;"></div>
+        <span class="card-cat" style="position: relative; z-index: 2;">Plant fuel</span>
+      </div>
+      <div class="card-meta">4 min read</div>
+      <h3>High-Protein Vegan Snacks</h3>
+      <p>Quick, macro-friendly plant-based snacks to hit your daily targets and fuel recovery between intense training sessions.</p>
+    </a>
+
+          
+    <a class="card" data-cat="off" href="/blog/pole-conditioning-exercises">
+      <div class="card-img" style="position: relative; overflow: hidden;">
+        <img src="images/home-strength.png" alt="A man doing a side push up on the floor" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"><span class="card-cat">Plant fuel</span></div>
+      <div class="card-meta">4 min read</div>
+      <h3>8 Pole Conditioning Exercises with free PDF (to do at home) </h3>
+      <p>Try these 8 exercises at home that will help you get stronger off the pole. The exercises should provide you with a full body workout.</p>
+    </a>
+    
+        
+    <a class="card" data-cat="plant" href="plant-powered-poler">
+      <div class="card-img bg-plant"><span class="card-cat">Plant fuel</span></div>
+      <div class="card-meta">4 min read</div>
+      <h3>The Plant-Powered Poler</h3>
+      <p>How to hit your protein goals and fuel rapid muscular recovery on a vegan diet without relying entirely on processed powders.</p>
+    </a>
+
+    <a class="card" data-cat="zero" href="from-zero">
+      <div class="card-img bg-zero"><span class="card-cat">From zero</span></div>
+      <div class="card-meta">4 min read</div>
+      <h3>I didn't exercise until I was 22</h3>
+      <p>How one pole class turned someone who never moved into someone who can't stop — and why Pole Peak exists.</p>
+    </a>
+
+<a class="card" data-cat="pole" href="/blog/beginner-pole-spins">
+  <div class="card-img" style="position: relative; overflow: hidden;">
+    <img src="/images/4-spins.jpg" alt="Pole dancer mid-spin on a pole" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+    <span class="card-cat" style="position: relative; z-index: 2;">On the pole</span>
+  </div>
+  <div class="card-meta">6 min read</div>
+  <h3>4 Beginner Pole Spins to Try in Your First Month</h3>
+  <p>Fireman, Chair, Front Hook, and Back Hook — step-by-step hand placement, momentum, and body contact points to work through at your own pace.</p>
+</a>
+
+    <a class="card" data-cat="zero" href="starting-pole">
+      <div class="card-img" style="position: relative; overflow: hidden;">
+        <img src="images/what-to-expect-image.png" alt="Beginner training on a studio pole" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+        <span class="card-cat" style="position: relative; z-index: 2;">From zero</span>
+      </div>
+      <div class="card-meta">5 min read</div>
+      <h3>What to expect when you start pole</h3>
+      <p>The honest version nobody tells beginners — why you won't be good right away, why comparison ruins it, and what actually speeds you up.</p>
+    </a>
+
+    <div class="empty" id="empty" style="display:none">
+      <div class="empty-mark">“</div>
+      <p>No posts in this category yet — they're coming. Check back soon.</p>
+    </div>
+
+  </div>
+</main>
+<section class="sub-strip">
+  <div class="sub-inner">
+    <h2>New posts, <em>no noise.</em></h2>
+    <p>Get new journal entries and training notes in your inbox. Roughly once a week, never more.</p>
+    <form class="sub-form" action="https://formspree.io/f/xbdebdqv" method="POST" onsubmit="return submitSub(this,event)">
+      <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address">
+      <input type="hidden" name="_subject" value="New Pole Peak signup (blog)">
+      <input type="hidden" name="source" value="blog newsletter">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Pole Peak</div>
+      <div class="footer-tag">Strength is built, not born.</div>
+    </div>
+    <div class="footer-social">
+      <a href="https://instagram.com/polepeakcom">@polepeakcom</a>
+      <a href="index.html">home</a>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span>© 2026 Pole Peak. Built in Copenhagen.</span>
+    <span>Powered by plants 🌱</span>
+  </div>
+</footer>
+
+<script>
+const buttons=document.querySelectorAll('.filter-btn');
+const empty=document.getElementById('empty');
+buttons.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    buttons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat=btn.dataset.cat;
+    const cards=document.querySelectorAll('.card');
+    let visible=0;
+    cards.forEach(card=>{
+      const show=cat==='all'||card.dataset.cat===cat;
+      card.style.display=show?'':'none';
+      if(show)visible++;
+    });
+    if(empty)empty.style.display=visible===0?'block':'none';
+  });
+});
+
+function submitSub(form,e){
+  e.preventDefault();
+  const btn=form.querySelector('button');
+  const original=btn.textContent;
+  btn.textContent='Sending…';
+  fetch(form.action,{
+    method:'POST',
+    body:new FormData(form),
+    headers:{'Accept':'application/json'}
+  }).then(r=>{
+    if(r.ok){
+      form.reset();
+      btn.textContent='Done ✓';
+    }else{
+      btn.textContent='Try again';
+    }
+  }).catch(()=>{
+    btn.textContent='Try again';
+  });
+  return false;
+}
+</script>
+
+</body>
+</html>
