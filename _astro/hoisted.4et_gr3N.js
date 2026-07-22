@@ -1,0 +1,1 @@
+import"./Nav.astro_astro_type_script_index_0_lang.8i5hMasu.js";const e=document.querySelector("[data-progress-bar]");function o(){if(!e)return;const n=window.scrollY,t=document.documentElement.scrollHeight-window.innerHeight,r=t>0?n/t*100:0;e.style.width=r+"%"}document.addEventListener("scroll",o,{passive:!0});o();
