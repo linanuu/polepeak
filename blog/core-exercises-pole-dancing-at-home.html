@@ -279,6 +279,29 @@
     .pp-download-actions{ justify-content:center; }
   }
 
+  /* Email gate form (shown before download unlocks) */
+  .pp-gate-form{ display:flex; gap:10px; flex-wrap:wrap; margin:0; }
+  .pp-gate-form input[type="email"]{
+    flex:1 1 200px; min-width:180px;
+    font-family:"Inter",sans-serif; font-size:.95rem;
+    padding:11px 16px; border:1px solid rgba(41,74,56,.25);
+    border-radius:999px; background:#fff; color:#2b2a26;
+  }
+  .pp-gate-form input[type="email"]:focus{ outline:none; border-color:var(--wood); }
+  .pp-gate-form button{
+    font-family:"Inter",sans-serif; font-weight:600; font-size:.95rem;
+    background:var(--wood); color:#fff; border:none; cursor:pointer;
+    padding:11px 22px; border-radius:999px; white-space:nowrap;
+  }
+  .pp-gate-form button:hover{ background:#9a673c; }
+  .pp-gate-form button:disabled{ opacity:.6; cursor:default; }
+  .pp-gate-note{
+    font-family:"Inter",sans-serif; font-size:.82rem; color:var(--ink-soft);
+    margin:10px 0 0;
+  }
+  .pp-gate-success{ display:none; }
+  .pp-gate-success.is-active{ display:flex; }
+
   /* FAQ */
   .pp-faq{ margin:14px 0 0; }
   .pp-faq h3{ margin:24px 0 6px; }
@@ -341,6 +364,8 @@
   <h1>Core Exercises for Pole Dancing You Can Do at Home</h1>
   <p class="pp-meta">By Lina · 8 min read</p>
 
+  <!-- IMAGE SUGGESTION 1: Hero image, 16:9. See note below for the full list. -->
+  <div class="pp-imgnote reveal">📷 <span><strong>Hero image:</strong> wide shot of someone mid-invert or holding a strong hollow-body shape on the pole, showing visible core engagement. Save as <code>/images/core-exercises-pole-dancing-at-home.jpg</code> and drop an <code>&lt;img class="pp-hero"&gt;</code> tag right above the lead paragraph once you have it.</span></div>
 
   <p class="pp-lead reveal">Every trick that looks effortless on the pole — a controlled invert, a still handspring, a spin that doesn't wobble — is powered by a core that can resist rotation, control your spine, and hold your hips exactly where you put them. That strength isn't built by wishing for it on the pole; it's built on the floor, between sessions. Here are eight classic, well-known core exercises — no invented names, just the moves you'd find in any solid strength program — mapped to what pole dancing actually demands.</p>
 
@@ -358,6 +383,9 @@
   </div>
 
   <h2 class="reveal">The 8 moves</h2>
+
+  <!-- IMAGE SUGGESTION 2: photo or short looping clip of the dead bug's extended position, one arm and the opposite leg reaching out -->
+  <div class="pp-imgnote reveal">📷 <span><strong>Move 1 photo:</strong> overhead or side-angle shot of the dead bug's extended position (one arm and the opposite leg reaching away from the body). A real photo here helps readers check their own lower-back position against yours.</span></div>
 
   <div class="pp-move reveal">
     <div class="pp-move-head">
@@ -470,19 +498,29 @@
 
   <div class="pp-download reveal">
     <div class="pp-download-thumb">
-      <a href="/downloads/pole-core-routine.pdf" target="_blank" rel="noopener" aria-label="Preview the core routine PDF in a new tab">
-        <img src="/images/pole-core-routine-preview.png"
-             alt="Preview of the printable 8-Move Core Routine PDF for pole dancers"
-             width="1000" height="987" loading="lazy">
-      </a>
+      <img src="/images/pole-core-routine-preview.png"
+           alt="Preview of the printable 8-Move Core Routine PDF for pole dancers"
+           width="1000" height="987" loading="lazy">
     </div>
     <div class="pp-download-body">
       <p class="pp-eyebrow">Free printable</p>
       <h3>Get the routine as a printable PDF</h3>
-      <p>The full 8-move circuit on one page, with a 4-week progress tracker. Stick it on the wall and tick off every session.</p>
-      <div class="pp-download-actions">
-        <a class="pp-btn" href="/downloads/pole-core-routine.pdf" download>Download the PDF</a>
-        <a class="pp-download-preview" href="/downloads/pole-core-routine.pdf" target="_blank" rel="noopener">Preview first →</a>
+      <p>The full 8-move circuit on one page, with a 4-week progress tracker. Enter your email and we'll unlock the download — you'll also hear from us once when the Pole Peak app launches.</p>
+
+      <!-- Email gate: shown until the person submits their address -->
+      <form class="pp-gate-form" id="pdfGateForm"
+            action="https://formspree.io/f/xbdebdqv" method="POST">
+        <input type="email" name="email" id="pdfGateEmail" placeholder="your@email.com" required aria-label="Email address">
+        <input type="hidden" name="_subject" value="New Pole Peak PDF download signup">
+        <input type="hidden" name="source" value="core-exercises-pdf-download">
+        <button type="submit" id="pdfGateBtn">Unlock the PDF</button>
+      </form>
+      <p class="pp-gate-note" id="pdfGateNote">No spam. Just the download, plus one additional email when the app launches.</p>
+
+      <!-- Revealed after successful signup -->
+      <div class="pp-download-actions pp-gate-success" id="pdfGateSuccess">
+        <a class="pp-btn" href="/downloads/pole-core-routine.pdf" download id="pdfGateDownloadLink">Download the PDF</a>
+        <a class="pp-download-preview" href="/downloads/pole-core-routine.pdf" target="_blank" rel="noopener">Open in a new tab →</a>
       </div>
     </div>
   </div>
@@ -526,6 +564,45 @@
     window.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
     update();
+  })();
+
+  // Email-gated PDF download
+  (function () {
+    var form = document.getElementById('pdfGateForm');
+    if (!form) return;
+    var emailInput = document.getElementById('pdfGateEmail');
+    var btn = document.getElementById('pdfGateBtn');
+    var note = document.getElementById('pdfGateNote');
+    var success = document.getElementById('pdfGateSuccess');
+    var downloadLink = document.getElementById('pdfGateDownloadLink');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Unlocking…';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (r) {
+        if (r.ok) {
+          form.style.display = 'none';
+          note.textContent = "You're in — here's your download.";
+          success.classList.add('is-active');
+          // Auto-start the download for the person who just signed up
+          downloadLink.click();
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Unlock the PDF';
+          note.textContent = 'Something went wrong — please try again.';
+        }
+      }).catch(function () {
+        btn.disabled = false;
+        btn.textContent = 'Unlock the PDF';
+        note.textContent = 'Something went wrong — please try again.';
+      });
+    });
   })();
 
   // Reveal on scroll
