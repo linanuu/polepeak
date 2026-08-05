@@ -181,6 +181,14 @@ footer{max-width:var(--maxw);margin:0 auto;padding:30px 24px 48px;color:var(--in
   html{scroll-behavior:auto;}
 }
 
+@media(max-width:600px){
+  nav{padding:18px 22px;}
+  .nav-links{display:none;}
+  .nav-links.open{display:flex;position:absolute;top:60px;right:22px;flex-direction:column;background:var(--forest-deep);padding:22px 28px;gap:16px;border-radius:4px;}
+  .nav-links.open a{color:var(--cream);}
+  .nav-toggle{display:block;}
+}
+
 @media(max-width:520px){
   body{font-size:17px;}
   .nav-links{gap:14px;font-size:14px;}

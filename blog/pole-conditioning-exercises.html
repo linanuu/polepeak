@@ -306,14 +306,15 @@
 <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
 
 <!-- Navigation -->
-<nav class="pp-nav">
-  <div class="pp-nav-inner">
-    <a class="pp-brand" href="/">Pole Peak</a>
-    <div class="pp-links">
-      <a href="/">Home</a>
-      <a href="/blog">Blog</a>
-      <a href="/moves">Moves List</a>
-    </div>
+<nav>
+  <a href="/" class="logo">Pole Peak</a>
+  <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <div class="nav-links">
+    <a href="/#story">story</a>
+    <a href="/#train">train</a>
+    <a href="/blog" class="active">blog</a>
+    <a href="/#join">join</a>
+    <a href="/moves">moves list</a>
   </div>
 </nav>
 

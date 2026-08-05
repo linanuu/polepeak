@@ -42,93 +42,15 @@
 
   .move-link{margin:10px 0 0;}
 
-  /* Safety override — breadcrumb is a <nav> and the shared nav{} rule
-     pins any <nav> to position:fixed at the top. This keeps the
-     breadcrumb in normal document flow. Same fix belongs in style.css
-     itself so every post gets it, not just this one. */
-  nav.breadcrumb{position:static;background:none;backdrop-filter:none;z-index:auto;}
-</style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "4 Beginner Pole Spins to Try in Your First Month",
-  "description": "Step-by-step breakdown of Fireman, Chair, Front Hook, and Back Hook spins, covering hand placement, momentum, and body contact points for beginner polers.",
-  "image": "https://polepeak.com/images/beginner-pole-spins-og.jpg",
-  "author": { "@type": "Person", "name": "Lina" },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Pole Peak",
-    "logo": { "@type": "ImageObject", "url": "https://polepeak.com/images/logo.png" }
-  },
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://polepeak.com/blog/beginner-pole-spins" }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://polepeak.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://polepeak.com/blog" },
-    { "@type": "ListItem", "position": 3, "name": "4 Beginner Pole Spins to Try in Your First Month", "item": "https://polepeak.com/blog/beginner-pole-spins" }
-  ]
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How long does it actually take to learn these four spins?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Most beginners get a wobbly but complete version of the Fireman Spin in their very first class, since it stays low and close to the ground. Chair, Front Hook, and Back Hook usually click within the first one to two weeks of regular practice. Clean, controlled versions on both sides can take a few months — that second side always lags behind." }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to wear shorts for these spins?",
-      "acceptedAnswer": { "@type": "Answer", "text": "For Fireman, Front Hook, and Back Hook, yes. Each of these relies on bare skin at the knee pit or thigh gripping the pole, and fabric there will just slide. Chair Spin is more hand-and-arm driven, so it's the most forgiving of the four if you're still building up to bare-leg moves." }
-    },
-    {
-      "@type": "Question",
-      "name": "Why do I keep sliding down the pole mid-spin?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Almost always a grip issue, not a strength issue. Check that your top hand is high enough that your arm is close to fully extended, and that you're actually using the push-pull pattern — pushing away with the lower arm while pulling in with the upper one. A cold or freshly-cleaned pole can also feel slicker than usual; warming it up with a dry cloth helps." }
-    },
-    {
-      "@type": "Question",
-      "name": "Should I use grip aid as a total beginner?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Most experienced instructors suggest holding off for the first few months if you can. Reaching for grip aid too early means your hands never build their own natural stick, and you end up depending on the bottle. It's fine to use a small amount on a specific move you're drilling, but let your grip strength develop on the easier spins first." }
-    },
-    {
-      "@type": "Question",
-      "name": "Is it normal to get bruises learning these spins?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes — a few bruises on the inner knee and thigh are a normal part of the first few weeks as your skin and soft tissue adjust to holding your weight against the pole. They should fade and become less frequent as your technique improves and you rely less on brute contact and more on correct positioning. Sharp or worsening pain is different from ordinary bruising and is worth mentioning to your instructor." }
-    },
-    {
-      "@type": "Question",
-      "name": "Which of these four spins should I learn first?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Fireman Spin first — it stays close to the ground, doesn't require much momentum, and teaches you how your body feels wrapped around the pole with minimal risk. Chair Spin is a natural second step since it introduces the push-pull grip pattern you'll reuse everywhere. Front Hook and Back Hook build on both of those." }
-    }
-  ]
-}
-</script>
-</head>
-<body>
-
-<div class="progress-track">
-  <div class="progress-bar" id="progressBar"></div>
-</div>
-
-<nav class="nav">
-  <a href="/" class="brand">Pole<span>Peak</span></a>
+  /* Safety override — breadcrumb is a <nav>
+  <a href="/" class="logo">Pole Peak</a>
+  <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
   <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/blog">Blog</a>
-    <a href="/moves">Moves List</a>
+    <a href="/#story">story</a>
+    <a href="/#train">train</a>
+    <a href="/blog" class="active">blog</a>
+    <a href="/#join">join</a>
+    <a href="/moves">moves list</a>
   </div>
 </nav>
 

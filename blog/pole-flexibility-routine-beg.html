@@ -200,12 +200,15 @@
 
 <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
 
-<nav class="nav">
-  <a href="/" class="brand">Pole<span>Peak</span></a>
+<nav>
+  <a href="/" class="logo">Pole Peak</a>
+  <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
   <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/blog">Blog</a>
-    <a href="/moves">Moves List</a>
+    <a href="/#story">story</a>
+    <a href="/#train">train</a>
+    <a href="/blog" class="active">blog</a>
+    <a href="/#join">join</a>
+    <a href="/moves">moves list</a>
   </div>
 </nav>
 

@@ -277,13 +277,17 @@
 <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
 
 <header>
-  <nav class="nav">
-    <a class="brand" href="/">Pole<span>Peak</span></a>
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/blog.html">Blog</a>
-    </div>
-  </nav>
+  <nav>
+  <a href="/" class="logo">Pole Peak</a>
+  <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  <div class="nav-links">
+    <a href="/#story">story</a>
+    <a href="/#train">train</a>
+    <a href="/blog" class="active">blog</a>
+    <a href="/#join">join</a>
+    <a href="/moves">moves list</a>
+  </div>
+</nav>
 </header>
 
 <nav aria-label="Breadcrumb" class="breadcrumb">
