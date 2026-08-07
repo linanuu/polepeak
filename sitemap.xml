@@ -66,17 +66,33 @@
 	<lastmod>2026-07-05T11:29:23+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
-<url>
-	<loc>https://polepeak.com/moves</loc>
-	<lastmod>2026-07-05T11:29:23+01:00</lastmod>
-	<priority>1.0</priority>
+			<loc>http://polepeak.com/blog/strength-benchmarks-pole-dancers</loc>
+  <priority>1.0</priority>
+  <lastmod>2026-08-07</lastmod>
 </url>
+<url>
+  <loc>http://polepeak.com/blog/track-grip-strength-progress</loc>
+  <priority>1.0</priority>
+  <lastmod>2026-08-07</lastmod>
+</url>
+
+<url>
+  <loc>http://polepeak.com/moves.html</loc>
+  <priority>1.0</priority>
+  <lastmod>2026-08-07</lastmod>
+</url>
+
 <url>
 	<loc>https://polepeak.com/downloads/pole-conditioning-routine.pdf</loc>
 	<lastmod>2026-07-05T11:29:25+01:00</lastmod>
 	<priority>0.8</priority>
 </url>
 
+<url>
+  <loc>http://polepeak.com/downloads/pole-core-routine.pdf</loc>
+  <priority>1.0</priority>
+  <lastmod>2026-08-07</lastmod>
+</url>
 
 <url>
 	<loc>https://polepeak.com/moves-list/chair-spin</loc>
@@ -102,5 +118,27 @@
 	<lastmod>2026-07-05T11:29:27+01:00</lastmod>
 	<priority>0.8</priority>
 </url>
+	  <loc>http://polepeak.com/blog/home-pole-training-discipline</loc>
+  <priority>1.0</priority>
+  <lastmod>2026-08-07</lastmod>
+</url>
+
+<url>
+  <loc>http://polepeak.com/moves-list/back-hook-spin.html</loc>
+  <priority>1.0</priority>
+  <lastmod>2026-08-07</lastmod>
+</url>
+
+<url>
+  <loc>http://polepeak.com/moves-list/ayesha</loc>
+  <priority>1.0</priority>
+  <lastmod>2026-08-07</lastmod>
+</url>
+<url>
+  <loc>http://polepeak.com/moves-list/archer</loc>
+  <priority>1.0</priority>
+  <lastmod>2026-08-07</lastmod>
+</url>
+
 
 </urlset>
