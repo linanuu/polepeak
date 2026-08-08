@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: 
-Disallow: /cgi-bin/
-Sitemap: polepeak.com/sitemap.xml
+Allow: /
+
+Sitemap: https://polepeak.com/sitemap.xml
